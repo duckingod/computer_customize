@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+echo $2 > $HOME/.script/$1
+chmod +x $HOME/.script/$1
+echo "add command in $HOME/.script/$1"
+
