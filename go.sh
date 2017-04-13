@@ -12,12 +12,11 @@ else
     exit
 fi
 
-if [ -f "already_did" ]; then
+if [ -f "aalready_did" ]; then
     echo "You already go-ed, run again is not recommended."
     echo "Delete file './already_did' to force runing."
     exit
 fi
-
 touch already_did
 
 bashrc_local=~/.bashrc.local
@@ -39,4 +38,10 @@ if [ "`uname`" == "Linux" ]; then
     sudo apt-get upgrade
     sudo apt-get install `cat files/apt-get-list`
 fi
+
+while read p; do 
+    al=$(echo $p | cut -f1 -d\;)
+    cmd=$(echo $p | cut -f2 -d\;)
+    git config --global $al "$cmd"
+done < files/gitconfig
 

@@ -1,0 +1,5 @@
+alias.br;branch
+alias.ch;checkout
+alias.cmt;commit -m
+alias.st;status
+alias.lg;log --oneline --graph --decorate --all
