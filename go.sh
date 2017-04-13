@@ -13,32 +13,33 @@ else
 fi
 
 if [ -f "already_did" ]; then
-    echo "You already go-ed, run again is not recommended."
-    echo "Delete file './already_did' to force runing."
-    exit
+    echo "You already go-ed, will execute part of functions only."
+    echo "Delete file './already_did' to force running all functions."
+    echo
+else
+    touch already_did
+
+    bashrc_local=~/.bashrc.local
+
+    # make bashrc source ~/.bashrc.local
+    if ! [ -f "$bashrc" ]; then
+        touch $bashrc
+    fi
+    cp $bashrc $bashrc.backup
+    cat files/bashrc_append >> $bashrc
+    cp files/bashrc.local $bashrc_local
+    cat $bashrc_local_os >> $bashrc_local
+    . $bashrc_local
+    # install packages for ubuntu
+    echo "install packages ..."
+    if [ "`uname`" == "Linux" ]; then
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install `cat files/apt-get-list`
+    fi
 fi
-touch already_did
-
-bashrc_local=~/.bashrc.local
-
-# make bashrc source ~/.bashrc.local
-if ! [ -f "$bashrc" ]; then
-    touch $bashrc
-fi
-cp $bashrc $bashrc.backup
-cat files/bashrc_append >> $bashrc
-cp files/bashrc.local $bashrc_local
-cat $bashrc_local_os >> $bashrc_local
-. $bashrc_local
 
 
-# install packages for ubuntu
-echo "install packages ..."
-if [ "`uname`" == "Linux" ]; then
-    sudo apt-get update
-    sudo apt-get upgrade
-    sudo apt-get install `cat files/apt-get-list`
-fi
 
 echo "configure gitconfig ..."
 while read p; do 
@@ -46,4 +47,10 @@ while read p; do
     cmd=$(echo $p | cut -f2 -d\;)
     git config --global $al "$cmd"
 done < files/gitconfig
+
+echo "copy commands ..."
+if [ ! -d "$HOME/.script" ]; then
+    mkdir ~/.script
+fi
+cp script/* ~/.script/
 

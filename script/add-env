@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+if [ -z "$1" ]; then
+    echo "add-env ENV_NAME ACTIVATE_COMMAND"
+    echo "Example:"
+    echo "    add-env myenv venv"
+    echo "    venv"
+    echo "    unenv"
+    exit
+fi
+
+
+mkdir -p ~/.virtualenv
+virtualenv ~/.virtualenv/$1
+echo "alias $2=\"source ~/.virtualenv/$1/bin/activate\"" >> ~/.bashrc.local
+
