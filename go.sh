@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Get bashrc path
+# get bashrc path
 if [ "`uname`" == "Linux" ]; then
     bashrc=~/.bashrc
     bashrc_local_os=files/bashrc.local.linux
@@ -12,6 +12,14 @@ else
     exit
 fi
 
+if [ -f "already_did" ]; then
+    echo "You already go-ed, run again is not recommended."
+    echo "Delete file './already_did' to force runing."
+    exit
+fi
+
+touch already_did
+
 bashrc_local=~/.bashrc.local
 
 # make bashrc source ~/.bashrc.local
@@ -22,6 +30,13 @@ cp $bashrc $bashrc.backup
 cat files/bashrc_append >> $bashrc
 cp files/bashrc.local $bashrc_local
 cat $bashrc_local_os >> $bashrc_local
-
 . $bashrc_local
+
+
+# install packages for ubuntu
+if [ "`uname`" == "Linux" ]; then
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get install `cat files/apt-get-list`
+fi
 

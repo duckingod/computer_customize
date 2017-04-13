@@ -1,15 +1,14 @@
 # Computer Customize
 
-Script for computer customize
+Script for computer customize (Linux/OSX)
 
 ## Usage
 
-When first installed OS (ubuntu), run
-
 ```bash=
-. ./go.sh
+git clone https://github.com/duckingod/computer_customize.git
+cd computer_customize
+./go.sh
 ```
-
 
 ### Define command
 ```bash=
