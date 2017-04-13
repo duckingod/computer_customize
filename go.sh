@@ -12,7 +12,7 @@ else
     exit
 fi
 
-if [ -f "aalready_did" ]; then
+if [ -f "already_did" ]; then
     echo "You already go-ed, run again is not recommended."
     echo "Delete file './already_did' to force runing."
     exit
@@ -33,12 +33,14 @@ cat $bashrc_local_os >> $bashrc_local
 
 
 # install packages for ubuntu
+echo "install packages ..."
 if [ "`uname`" == "Linux" ]; then
     sudo apt-get update
     sudo apt-get upgrade
     sudo apt-get install `cat files/apt-get-list`
 fi
 
+echo "configure gitconfig ..."
 while read p; do 
     al=$(echo $p | cut -f1 -d\;)
     cmd=$(echo $p | cut -f2 -d\;)
