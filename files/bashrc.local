@@ -1,4 +1,8 @@
 
 export PATH=$PATH:~/.script
 alias unenv="deactivate"
+function 
 
+function venv() {
+    source ~/app/virtualenv/$1/bin/activate
+}
