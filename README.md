@@ -10,7 +10,7 @@ cd computer_customize
 ./go.sh
 ```
 
-### Define command
+### Define Command
 ```bash=
 mk-cmd NEW_CMD CMD_LINE
 ```
@@ -18,4 +18,14 @@ Example:
 ```
 mk-cmd ht "htop -u Alice"
 ```
+
+### Add Virtualenv
+```bash=
+add-env ENV_NAME
+venv ENV_NAME
+unenv
+```
+will install in `~/app/virtualenv`
+
+
 
