@@ -21,11 +21,12 @@ mk-cmd ht "htop -u Alice"
 
 ### Add Virtualenv
 ```bash=
-add-env ENV_NAME
-venv ENV_NAME
+. venv (make new env)"
+. venv python3.5 (make new env)"
+. venv (use current location env)"
 unenv
 ```
-will install in `~/app/virtualenv`
+will install in `./.env`
 
 
 
