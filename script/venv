@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+if [ -d ".env" ]; then
+    [[ "${BASH_SOURCE[0]}" == "${0}" ]] && echo "To use env, type '. venv'"
+    source .env/bin/activate
+else
+    if [ -z "$1" ]; then
+        echo "using default"
+        virtualenv .env
+    else
+        echo "using `which $1`"
+        virtualenv .env --python=`which $1`
+    fi
+fi
+
