@@ -1,0 +1,37 @@
+set fileencodings=utf8,big5,gbk,latin1
+set fileencoding=utf8
+set <C-u>=^U
+set <C-b>=^B
+map <C-u> :set fileencoding=utf8
+map <C-b> :set fileencoding=big5
+
+set ai nu sw=4 ts=4 et sts=4
+set backspace=indent,eol,start
+
+set guifont=Monaco:h16
+if has("gui_running")
+    colorscheme koehler
+else
+    set background=dark
+    colorscheme darkblue
+endif
+syntax on
+filetype plugin indent on
+set foldmethod=syntax
+set foldlevel=10
+set laststatus=2
+set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
+
+let mapleader=","
+map <Leader>n :tabnew<CR>
+map <Leader>v :source $HOME/.vimrc<CR>
+map <Leader><Left> :tabprev<CR>
+map <Leader><Right> :tabnext<CR>
+nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
+map <Leader>aii :set foldmethod=indent<CR>zM
+map <Leader>ais :set foldmethod=syntax<CR>zM
+
+"map <Leader>c 
+
+source $HOME/.vundle.vimrc
+

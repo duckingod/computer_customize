@@ -54,3 +54,10 @@ if [ ! -d "$HOME/.script" ]; then
 fi
 cp script/* ~/.script/
 
+echo "configuring vim ..."
+cp ~/.vimrc ~/.vimrc.backup
+cat files/vimrc >> ~/.vimrc
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cp ~/.vundle.vimrc ~/.vundle.vimrc.backup
+cat files/vundle.vimrc >> ~/.vundle.vimrc
+
