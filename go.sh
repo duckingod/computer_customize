@@ -54,10 +54,15 @@ if [ ! -d "$HOME/.script" ]; then
 fi
 cp script/* ~/.script/
 
-echo "configuring vim ..."
+echo "configure vim ..."
 cp ~/.vimrc ~/.vimrc.backup
 cat files/vimrc >> ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp ~/.vundle.vimrc ~/.vundle.vimrc.backup
 cat files/vundle.vimrc >> ~/.vundle.vimrc
 echo "  (YouCompleteMe not install by default)"
+
+
+echo "configure python ..."
+pip install virtualenv
+
