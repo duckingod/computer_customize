@@ -60,4 +60,4 @@ cat files/vimrc >> ~/.vimrc
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 cp ~/.vundle.vimrc ~/.vundle.vimrc.backup
 cat files/vundle.vimrc >> ~/.vundle.vimrc
-
+echo "  (YouCompleteMe not install by default)"
