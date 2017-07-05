@@ -16,12 +16,12 @@ cd computer_customize
 ```bash
 ./go.sh
 ```
-    - define command
+- define command
 ```
 mk-cmd ht "htop -u Alice"
 ht
 ```
-    - add virtualenv 
+- add virtualenv 
 ```bash=
 . venv (make new env)"
 . venv (use current location env)"

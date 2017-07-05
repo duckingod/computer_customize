@@ -52,7 +52,6 @@ else
 fi
 
 
-
 echo "configure gitconfig ..."
 while read p; do 
     al=$(echo $p | cut -f1 -d\;)
@@ -71,7 +70,6 @@ cp script/* ~/.script/
 
 
 echo "configure python ..."
+pip install --upgrade pip
 pip install virtualenv
 
-
-echo 
