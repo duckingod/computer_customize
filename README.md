@@ -21,19 +21,22 @@ cd computer_customize
 mk-cmd ht "htop -u Alice"
 ht
 ```
-- add virtualenv 
+- add virtualenv (in current location)
 ```bash=
 . venv (make new env)"
-. venv (use current location env)"
 unenv
 ```
-or
+
 ```bash=
-. venv python3.5 (make new env for python3.5)"
-. venv (use current location env)"
+. venv python3.5"
 unenv
 ```
-will install in `./.env`
+install virtualenv with python3.5 in `./.env3.5`
+
+```bash=
+venv delete python3.5
+```
+will delete virtualenv with python3.5
 
 ### Tools
 - virtualbox,ubuntu: install Guest Additions (from [Filip Wasilewski])
