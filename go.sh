@@ -41,6 +41,10 @@ else
     
     echo "configure screen ..."
     cat files/screenrc >> ~/.screenrc
+    if [ "`uname`" == "Darwin" ]; then
+        # screen only load .bashrc in OSX
+        cat files/bashrc_append >> ~/.bashrc
+    fi
 
     echo "configure vim ..."
     cp ~/.vimrc ~/.vimrc.backup
