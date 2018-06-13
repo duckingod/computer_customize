@@ -22,6 +22,8 @@ set foldlevel=10
 set laststatus=2
 set statusline=%t[%{strlen(&fenc)?&fenc:'none'},%{&ff}]%h%m%r%y%=%c,%l/%L\ %P
 
+" Key mapping
+
 let mapleader=","
 map <Leader>n :tabnew<CR>
 map <Leader>v :source $HOME/.vimrc<CR>
@@ -30,8 +32,40 @@ map <Leader><Right> :tabnext<CR>
 nnoremap <space> @=((foldclosed(line('.')) < 0) ? 'zc' : 'zo')<CR>
 map <Leader>aii :set foldmethod=indent<CR>zM
 map <Leader>ais :set foldmethod=syntax<CR>zM
+map <Leader>p :set invpaste<CR>
+" NERDCommenter
+map <Leader>c <Plug>NERDCommenterToggle
 
 "map <Leader>c 
+
+" Configure
+
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+
+" airline
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+let g:airline_theme = 'luna'
+let g:airline_exclude_preview = 1
+let g:airline_left_sep = '»'
+let g:airline_left_sep = '▶'
+let g:airline_right_sep = '«'
+let g:airline_right_sep = '◀'
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+set laststatus=2
+let g:airline_exclude_preview = 1 " Let airline focus right after preview is closed
+
+" YouCompleteMe
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 source $HOME/.vundle.vimrc
 
