@@ -53,6 +53,9 @@ else
     cp ~/.vundle.vimrc ~/.vundle.vimrc.backup
     cat files/vundle.vimrc >> ~/.vundle.vimrc
     echo "  (YouCompleteMe not install by default)"
+
+    echo "configure colorful tmux ..."
+    cp files/tmux.conf ~/.tmux.conf
 fi
 
 
