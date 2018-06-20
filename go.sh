@@ -73,6 +73,9 @@ if [ ! -d "$HOME/.script" ]; then
 fi
 cp script/* ~/.script/
 
+echo "configure commands ..."
+pip3 install argparse --user
+
 
 
 
