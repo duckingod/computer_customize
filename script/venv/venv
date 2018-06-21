@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
-python3 venv.py $@
+
+bashPath=$(dirname "${BASH_SOURCE[0]}")
+python3 $bashPath/venv.py $@
+
 tmpFile=$PWD/.venv/tmp
 if [ -f "$tmpFile" ]; then
     . $tmpFile
