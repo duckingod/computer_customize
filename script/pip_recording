@@ -1,6 +1,0 @@
-#/bin/usr/env bash
-if [ ${VENV_RUNNING+x} ]; then
-    echo $@ >> $VIRTUAL_ENV/../pip_log.txt
-fi
-'pip' $@
-
