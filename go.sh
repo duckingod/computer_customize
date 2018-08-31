@@ -82,5 +82,5 @@ pip3 install argparse --user
 echo "configure python ..."
 pip install --upgrade pip
 pip install virtualenv
-pip install venv
+pip install clivenv
 
