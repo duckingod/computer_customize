@@ -32,12 +32,6 @@ else
     cat $bashrc_local_os >> $bashrc_local
     . $bashrc_local
     # install packages for ubuntu
-    echo "install packages ..."
-    if [ "`uname`" == "Linux" ]; then
-        sudo apt-get update
-        sudo apt-get upgrade
-        sudo apt-get install `cat files/apt-get-list`
-    fi
     
     echo "configure screen ..."
     cat files/screenrc >> ~/.screenrc
@@ -45,14 +39,6 @@ else
         # screen only load .bashrc in OSX
         cat files/bashrc_append >> ~/.bashrc
     fi
-
-    echo "configure vim ..."
-    cp ~/.vimrc ~/.vimrc.backup
-    cat files/vimrc >> ~/.vimrc
-    git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-    cp ~/.vundle.vimrc ~/.vundle.vimrc.backup
-    cat files/vundle.vimrc >> ~/.vundle.vimrc
-    echo "  (YouCompleteMe not install by default)"
 
     echo "configure colorful tmux ..."
     cp files/tmux.conf ~/.tmux.conf
@@ -66,21 +52,4 @@ while read p; do
     git config --global $al "$cmd"
 done < files/gitconfig
 
-
-echo "copy commands ..."
-if [ ! -d "$HOME/.script" ]; then
-    mkdir ~/.script
-fi
-cp script/* ~/.script/
-
-echo "configure commands ..."
-pip3 install argparse --user
-
-
-
-
-echo "configure python ..."
-pip install --upgrade pip
-pip install virtualenv
-pip install clivenv
 
